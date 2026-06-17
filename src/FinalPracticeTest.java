@@ -191,6 +191,35 @@ public class FinalPracticeTest {
         );
         assertEquals(20, FinalPractice.evenLeafNodeSum(root));
     }
+    @Test
+    public void testAllOddBrach() {
+        /*
+         *            15
+         *          /    \
+         *         9      4
+         *        / \    /  \
+         *       8   11  21  30
+         *      / \       \     
+         *     2    6      23      
+         * 
+         */
+        TreeNode root = new TreeNode(15,
+            new TreeNode(9,
+                new TreeNode(8,
+                    new TreeNode(2),new TreeNode(6)),
+                new TreeNode(11)),
+            new TreeNode(4,
+                new TreeNode(21,
+                    null,
+                new TreeNode(23)),
+                    new TreeNode(30)
+                )
+            );
+        assertEquals(45, FinalPractice.oddBranchSum(root));
+    }
+
+
+
 }
 
 

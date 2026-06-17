@@ -63,4 +63,17 @@ public class FinalPractice {
         }
         return sum+sumLeft+sumRight;
     }
+
+    public static int oddBranchSum(TreeNode root){
+        if(root==null) return 0;
+        int sum =0;
+        int sumLeft= oddBranchSum(root.left);
+        int sumRight =oddBranchSum(root.right);
+        if(root.left!=null||root.right!=null){
+            if(root.data%2!=0){
+                sum+=root.data;
+            }
+        }
+        return sum+sumLeft+sumRight;
+    }
 }
