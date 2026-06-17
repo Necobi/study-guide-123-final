@@ -38,6 +38,7 @@ public class FinalPractice {
     // TODO: implement the rest of the study guide AND MAKE GOOD UNIT TESTS
     public static int largestOfLast3Values(ListNode head){
         ListNode current = head;
+        if(head.next==null) return head.data;
        // int count =0;
         int biggest =0;
         while(current.next.next.next!=null){
@@ -47,5 +48,19 @@ public class FinalPractice {
             biggest=current.data;
         }
         return biggest;
+    }
+    public static int evenLeafNodeSum(TreeNode root){
+        if(root==null) return 0;
+        int sum =0;
+        int sumLeft = evenLeafNodeSum(root.left);
+        int sumRight = evenLeafNodeSum(root.right);
+        if(root.left==null&&root.right==null){
+            if(root.data%2==0){
+                sum+=root.data;
+            }else{
+                return 0;
+            }
+        }
+        return sum+sumLeft+sumRight;
     }
 }
