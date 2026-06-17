@@ -17,8 +17,35 @@ public class FinalPractice {
      */
     public static int oddIndexSum(ListNode head) {
         // TODO: implement this AND MAKE MORE UNIT TESTS FOR IT
-        return -1;
+        ListNode current = head;
+        int sum =0;
+        int count =0;
+        while(current!=null){
+            count++;
+            current=current.next;
+        }
+        ListNode toAdd = head;
+        for(int i =0; i<count; i++){
+            if(i%2!=0){
+                toAdd=toAdd.next;
+                sum+=toAdd.data;
+                
+            }
+        }
+        return sum;
     }
 
     // TODO: implement the rest of the study guide AND MAKE GOOD UNIT TESTS
+    public static int largestOfLast3Values(ListNode head){
+        ListNode current = head;
+       // int count =0;
+        int biggest =0;
+        while(current.next.next.next!=null){
+            current=current.next;
+        }
+        if(current.data>biggest){
+            biggest=current.data;
+        }
+        return biggest;
+    }
 }
