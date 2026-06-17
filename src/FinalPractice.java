@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class FinalPractice {
     public static void main(String[] args) {
         // Feel free to call your methods here to experiment
@@ -75,5 +78,25 @@ public class FinalPractice {
             }
         }
         return sum+sumLeft+sumRight;
+    }
+
+    public static Map<Integer,Integer> valueCount(ListNode head){
+        Map<Integer,Integer> count = new HashMap<>();
+        ListNode current =head;
+        //int oldValue = 0;
+        while(current!=null){
+            if(!count.containsKey(current.data)){
+                count.put(current.data,1);
+                //oldValue=1;
+
+            }else{
+                int oldCount = count.get(current.data);
+                int newCount=oldCount+1;
+                count.put(current.data,newCount );
+            }
+            current=current.next;
+        }
+        return count;
+        
     }
 }

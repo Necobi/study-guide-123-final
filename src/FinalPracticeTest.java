@@ -1,5 +1,8 @@
 import static org.junit.Assert.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.junit.jupiter.api.Test;
 
 public class FinalPracticeTest {
@@ -217,9 +220,46 @@ public class FinalPracticeTest {
             );
         assertEquals(45, FinalPractice.oddBranchSum(root));
     }
+    
+@Test
+    void counofValues() {
+        ListNode list = new ListNode(4, new ListNode(34, new ListNode(4, new ListNode(16, new ListNode(4, new ListNode(16, new ListNode(29, new ListNode(8, new ListNode(8, new ListNode(4 ))))))))));
+        Map<Integer, Integer> expected= new HashMap<>();
+        expected.put(4,4);
+        expected.put(8,2);
+        expected.put(16,2);
+        expected.put(29,1);
+        expected.put(34,1);
+
+       
+        assertEquals(expected, FinalPractice.valueCount(list));
+
+    }
+   @Test
+
+    void counofValues_1Value() {
+        ListNode list = new ListNode( 4);
+        Map<Integer, Integer> expected= new HashMap<>();
+        expected.put(4,1);
+        
+       
+        assertEquals(expected, FinalPractice.valueCount(list));
+
+    }
+     @Test
+
+    void counofValues_sameValues() {
+        ListNode list = new ListNode( 4,  new ListNode( 4,  new ListNode( 4)));
+        Map<Integer, Integer> expected= new HashMap<>();
+        expected.put(4,3);
+        
+       
+        assertEquals(expected, FinalPractice.valueCount(list));
+
+    }
 
 
-
+    
 }
 
 
