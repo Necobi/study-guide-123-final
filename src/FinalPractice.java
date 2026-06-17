@@ -22,21 +22,20 @@ public class FinalPractice {
         // TODO: implement this AND MAKE MORE UNIT TESTS FOR IT
         ListNode current = head;
         int sum =0;
-        int count =0;
+        int index =0;
         while(current!=null){
-            count++;
-            current=current.next;
-        }
-        ListNode toAdd = head;
-        for(int i =0; i<count; i++){
-            if(i%2!=0){
-                toAdd=toAdd.next;
-                sum+=toAdd.data;
-                
+            if(index%2!=0){
+                sum+=current.data;
             }
+            current=current.next;
+            index++;
+        
+            
         }
         return sum;
-    }
+        }
+        
+    
 
     // TODO: implement the rest of the study guide AND MAKE GOOD UNIT TESTS
     public static int largestOfLast3Values(ListNode head){
@@ -47,8 +46,12 @@ public class FinalPractice {
         while(current.next.next.next!=null){
             current=current.next;
         }
-        if(current.data>biggest){
-            biggest=current.data;
+        biggest=current.data;
+        if(current.next.data>biggest){
+            biggest=current.next.data;
+        }
+        if(current.next.next.data> biggest){
+            biggest = current.next.next.data;
         }
         return biggest;
     }
@@ -82,7 +85,7 @@ public class FinalPractice {
 
     public static Map<Integer,Integer> valueCount(ListNode head){
         Map<Integer,Integer> count = new HashMap<>();
-        ListNode current =head;
+        ListNode current = head;
         //int oldValue = 0;
         while(current!=null){
             if(!count.containsKey(current.data)){
